@@ -25,6 +25,9 @@ jobs:
         with:
           path: src/
 
+      - name: "Install Phan"
+        run: "composer require phan/phan"
+
       - name: Run Phan
-        uses: k1LoW/phan-action@v0
+        run: vendor/bin/phan --no-progress-bar --allow-polyfill-parser --output-mode checkstyle | vendor/bin/cs2pr --graceful-warnings --colorize | true
 
