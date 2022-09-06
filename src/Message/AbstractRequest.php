@@ -193,7 +193,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $locale = $this->getLocale();
 
             if (empty($locale)) {
-                return "";
+                return '';
             }
 
             // convert to IETF locale tag if other style is provided and then get first part, primary language

@@ -28,4 +28,4 @@ jobs:
       - name: Run Phan
         uses: k1LoW/phan-action@v0
         env:
-          PHAN_CONFIG_FILE: .phan.config.php
+          PHAN_CONFIG_FILE: .phan.php

@@ -2,13 +2,13 @@
 
 namespace Omnipay\Banklink;
 
+use Omnipay\Banklink\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\AbstractRequest;
-use Omnipay\Banklink\Message\PurchaseRequest;
 
 /**
- * Class Gateway
- * @package Omnipay\Banklink
+ * Class Gateway.
+ *
  * @phan-file-suppress PhanClassContainsAbstractMethod
  */
 class Gateway extends AbstractGateway
@@ -26,7 +26,7 @@ class Gateway extends AbstractGateway
      */
     public function getDefaultParameters()
     {
-        return array(
+        return [
             'sellerId' => '',
             'sellerName' => '',
             'sellerAccount' => '',
@@ -34,8 +34,8 @@ class Gateway extends AbstractGateway
             'privateKey' => '',
             'privateKeyPassword' => '',
             'provider' => '',
-            'testMode' => false
-        );
+            'testMode' => false,
+        ];
     }
 
     /**
@@ -193,11 +193,9 @@ class Gateway extends AbstractGateway
     }
 
     /**
-     * @param array $parameters
-     *
      * @return AbstractRequest|PurchaseRequest
      */
-    public function purchase(array $parameters = array())
+    public function purchase(array $parameters = [])
     {
         return $this->createRequest('\Omnipay\Banklink\Message\PurchaseRequest', $parameters);
     }

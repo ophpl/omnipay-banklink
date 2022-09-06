@@ -7,7 +7,7 @@ use RKD\Banklink;
 class PurchaseRequest extends AbstractRequest
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getData()
     {
@@ -49,15 +49,15 @@ class PurchaseRequest extends AbstractRequest
             ]
         );
 
-        return array(
+        return [
             'id' => $id,
             'url' => $request->getRequestUrl(),
             'data' => $request->getRequestData(),
-        );
+        ];
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function sendData($data)
     {
@@ -75,7 +75,7 @@ class PurchaseRequest extends AbstractRequest
     }
 
     /**
-     * Convert ISO-639-1 language code to ISO-639-2
+     * Convert ISO-639-1 language code to ISO-639-2.
      *
      * @param string $language ISO-639-1 language code
      *
