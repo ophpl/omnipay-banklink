@@ -81,7 +81,7 @@ class PurchaseRequest extends AbstractRequest
      *
      * @return string ISO-639-2 language code
      */
-    protected function langToISO6392(string $language) : string
+    protected function langToISO6392(string $language)
     {
         $languages = [
             'en' => 'eng',

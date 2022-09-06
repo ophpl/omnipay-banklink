@@ -7,7 +7,6 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
-
     /**
      * {@inheritDoc}
      */
@@ -56,5 +55,4 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     {
         return $this->data['id'];
     }
-
 }
