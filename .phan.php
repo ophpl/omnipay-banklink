@@ -19,7 +19,6 @@ return [
     // Note that the **only** effect of choosing `'5.6'` is to infer
     // that functions removed in php 7.0 exist.
     // (See `backward_compatibility_checks` for additional options)
-    // TODO: Set this.
     'target_php_version' => null,
 
     // A list of directories that should be parsed for class and
@@ -31,7 +30,9 @@ return [
     // your application should be included in this list.
     'directory_list' => [
         'src',
-        'vendor/symfony/console',
+        'vendor/omnipay/common/src/Common',
+        'vendor/omnipay/tests/src',
+        'vendor/renekorss/banklink/src',
     ],
 
     // A regex used to match every file name that you want to
