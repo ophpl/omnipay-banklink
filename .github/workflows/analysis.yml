@@ -27,6 +27,8 @@ jobs:
 
       - name: Run Psalm
         uses: docker://vimeo/psalm-github-actions
+        with:
+          composer_ignore_platform_reqs: true
 
       - name: Run Phan
         uses: k1LoW/phan-action@v0
