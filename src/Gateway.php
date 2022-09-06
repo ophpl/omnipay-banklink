@@ -9,6 +9,7 @@ use Omnipay\Banklink\Message\PurchaseRequest;
 /**
  * Class Gateway
  * @package Omnipay\Banklink
+ * @phan-file-suppress PhanClassContainsAbstractMethod
  */
 class Gateway extends AbstractGateway
 {

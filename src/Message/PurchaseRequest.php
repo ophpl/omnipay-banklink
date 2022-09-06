@@ -40,7 +40,7 @@ class PurchaseRequest extends AbstractRequest
 
         $request = $provider->getPaymentRequest(
             $id,
-            $this->getAmount(),
+            floatval($this->getAmount()),
             $this->getDescription(),
             $this->langToISO6392($this->getLanguage()),
             $this->getCurrency(),
