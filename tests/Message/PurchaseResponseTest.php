@@ -23,10 +23,10 @@ class PurchaseResponseTest extends TestCase
     {
         $response = new PurchaseResponse(
             $this->request,
-            array(
+            [
                 'id' => '711096929928330',
                 'url' => 'https://www.seb.ee/cgi-bin/unet3.sh/ipank.r',
-                'data' => array(
+                'data' => [
                     'VK_SERVICE' => '1011',
                     'VK_VERSION' => '008',
                     'VK_SND_ID' => 'seller-id',
@@ -42,9 +42,9 @@ class PurchaseResponseTest extends TestCase
                     'VK_NAME' => 'seller name',
                     'VK_ACC' => 'seller account',
                     'VK_MAC' => 'generated mac',
-                    'VK_ENCODING' => 'UTF-8'
-                )
-            )
+                    'VK_ENCODING' => 'UTF-8',
+                ],
+            ]
         );
 
         $this->assertFalse($response->isSuccessful());

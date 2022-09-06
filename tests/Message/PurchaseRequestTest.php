@@ -16,7 +16,7 @@ class PurchaseRequestTest extends TestCase
     {
         parent::setUp();
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
-        $this->request->initialize(array(
+        $this->request->initialize([
             'sellerId' => 'seller-id',
             'sellerName' => 'seller name',
             'sellerAccount' => 'seller account',
@@ -58,12 +58,12 @@ F3rf0c9wHIVHU89py3dwJnqpAcG3/ux9WDr3mFdYw1vUTwcb8Gtp3w==
 -----END RSA PRIVATE KEY-----',
             'privateKeyPassword' => '',
             'provider' => 'seb.ee',
-            'amount'        => 15.34,
-            'currency'      => 'EUR',
-            'description'   => 'Test',
-            'returnUrl'     => 'https://www.example.com/return.html',
-            'cancelUrl'     => 'https://www.example.com/cancel.html'
-        ));
+            'amount' => 15.34,
+            'currency' => 'EUR',
+            'description' => 'Test',
+            'returnUrl' => 'https://www.example.com/return.html',
+            'cancelUrl' => 'https://www.example.com/cancel.html',
+        ]);
     }
 
     public function testGetData()
