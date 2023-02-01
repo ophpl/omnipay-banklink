@@ -2,6 +2,7 @@
 
 namespace Omnipay\Banklink;
 
+use Omnipay\Banklink\Message\AcceptNotification;
 use Omnipay\Banklink\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\AbstractRequest;
@@ -198,5 +199,15 @@ class Gateway extends AbstractGateway
     public function purchase(array $parameters = [])
     {
         return $this->createRequest('\Omnipay\Banklink\Message\PurchaseRequest', $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     *
+     * @return AbstractRequest|AcceptNotification
+     */
+    public function acceptNotification(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Banklink\Message\AcceptNotification', $parameters);
     }
 }

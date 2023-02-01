@@ -2,6 +2,8 @@
 
 namespace Omnipay\Banklink\Message;
 
+use RKD\Banklink;
+
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     /**
@@ -213,5 +215,64 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function setLanguage($value)
     {
         return $this->setParameter('language', $value);
+    }
+
+    protected function getClient()
+    {
+        $protocol = new Banklink\Protocol\IPizza(
+            $this->getSellerId(),
+            $this->getPrivateKey(),
+            $this->getPrivateKeyPassword(),
+            $this->getPublicKey(),
+            $this->getReturnUrl(),
+            $this->getSellerName(),
+            $this->getSellerAccount()
+        );
+
+        $provider = $this->getProviderBanklink($protocol, $this->getProvider());
+
+        if ($this->getTestMode()) {
+            $provider->debugMode();
+        }
+
+        return $provider;
+    }
+
+    protected function getProviderBanklink($protocol, $provider)
+    {
+        switch ($provider) {
+            case 'seb.ee':
+                return new Banklink\EE\SEB($protocol);
+        }
+
+        throw new \InvalidArgumentException(sprintf('provider %s not supported', $provider));
+    }
+
+    /**
+     * Convert ISO-639-1 language code to ISO-639-2.
+     *
+     * @param string $language ISO-639-1 language code
+     *
+     * @return string ISO-639-2 language code
+     */
+    protected function langToISO6392(string $language)
+    {
+        $languages = [
+            'en' => 'eng',
+            'et' => 'est',
+            'ru' => 'rus',
+            'lv' => 'lat',
+            'lt' => 'lit',
+            'fi' => 'fin',
+            'de' => 'deu',
+        ];
+
+        $language = strtolower($language);
+
+        if (array_key_exists($language, $languages)) {
+            return strtoupper($languages[$language]);
+        }
+
+        return 'ENG';
     }
 }
